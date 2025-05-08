@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepicase</title>
+    <%- include('partials/link_imports.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/pepi-signup.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center justify-content-center shadow" style = "padding: 2vw; width: 50vw; border-radius: 20px; border: 1px solid #ccc">
+            <form method="post" action="/signup">
+                <h2 class="text-center" style="margin: 0px; margin-bottom: 20px; color: #1F3E97; font-family: 'Londrina Solid';"><b>SIGN UP</b></h2>
+    
+                <div class="mb-3">
+                    <div class="form-label">
+                        <b>Username</b>
+                        <span class="form-required">*</span>
+                    </div>
+                    <div id="email-group">
+                        <input style="width: 100%" class="form-control" type="text" id="username" name="username" placeholder="john_doe">
+                    </div>
+    
+                    <div id="check_username">
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-label">
+                        <b>Email</b>
+                        <span class="form-required">*</span>
+                    </div>
+                    <div id="email-group">
+                        <input style="width: 100%" class="form-control" type="email" id="email" name="email" placeholder="Abc123@gmail.com" onblur="checkEmail()">
+                    </div>
+    
+                    <div id="check_email">
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="form-label">
+                        <b>Password</b>
+                        <span class="form-required">*</span>
+                    </div>
+                    
+                    <div id="password-group" class="input-group">
+                        <input style="width: 100%" type="password" class="form-control" id="password" name="password" placeholder="Abc12345" onblur="check()">
+                        <span class="input-group-text" id="toggle_password">
+                            <img style="margin: 0px;" src="/images/Ellipse.svg" alt="">
+                        </span>
+                    </div>
+                    <div>
+                        <span style="color: #1F3E97; font-family: 'Lexend'">Minimum 8 characters, WITH capitalized letters and numbers.</span>
+                    </div>
+                    <div id="check_password">
+                        <span style="color: #1F3E97; font-family: 'Lexend'"></span>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <div class="form-label">
+                        <b>Confirm password</b>
+                        <span class="form-required">*</span>
+                    </div>
+                    
+                    <div id="confirm-password-group" class="input-group">
+                        <input style="width: 100%" type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Abc12345" onblur="check_confirm_password()">
+                        <span class="input-group-text" id="toggle_confirm_password">
+                            <img style="margin: 0px;" src="/images/Ellipse.svg" alt="">
+                        </span>
+                    </div>
+    
+                    <div id="check_confirm_password">
+                        <span style="color: #1F3E97; font-family: 'Lexend'"></span>
+                    </div>
+                </div>
+    
+
+                <div id="error" class="message" style="align-self: center;"><%- error %></div>
+                <div class="d-grid gap-2">
+                    <input class="btn btn-primary form-control" type="submit" name="signup" value="SIGN UP"
+                    style = "width: 100%; margin-top: 10px; background-color: #FFE57A; border-color: black; transition: background-color 0.3s; color:black; font-weight:bold; font-family: 'Lexend'">
+                </div>
+                <div id="trigger_confirm_password" class="message"></div>
+    
+                <div class="d-flex justify-content-center" style="margin-top: 10px; margin-bottom: 10px">
+                    <hr class="before" style="width: 100%">
+                    <text style="padding: 5px; font-family: 'Lexend'">OR</text>
+                    <hr class="last" style="width: 100%">
+                </div>
+    
+                <div class="d-flex justify-content-between">
+                    <button id = "facebook-button"type="button" class="button">
+                        <img style="width: 24px; height: 24px; margin-right: 5px" src="/images/Facebook_icon.svg" alt="facebook">
+                    Facebook</button>                   
+    
+                    <button id ="google-button" class="button" style="text-decoration: none;">
+                        <img style="width: 26px; height: 26px; margin-right: 5px" src="/images/Google_Icons-09-512.webp" alt="google">
+                    Google</button>
+                </div>
+    
+                <div class="d-flex justify-content-center" id="check_account">
+                    <div style="color: #A7A7A7; margin-right: 8px">Have an account? <a style="color: #844700;" href="/login">Login</a></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style ="height: 5vh;"></div>
+    <script src="/javascripts/signup.js"></script>
+</body>
+

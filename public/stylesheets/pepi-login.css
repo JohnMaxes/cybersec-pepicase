@@ -1,0 +1,61 @@
+.wrapper {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    height:auto;
+    width:100%;
+    max-width: 440px; /*Đặt chiều rộng cố định cho form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+}
+.input-group-text {
+    position: absolute;
+    right: 20px; /* Đặt vị trí của con mắt sang phải */
+    cursor: pointer;
+    top: 48%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Để phần màu nền của con mắt trong suốt */
+    border: none; /* Xóa viền của con mắt */
+    padding:0;
+    padding-right:17px;
+    margin-top: 5px;
+}
+.form-group {
+    margin-bottom: 7px;
+}
+.form-group label {
+    margin-bottom:10px;
+}
+
+.form-container .error-message {
+    color: red;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px); /* Đảm bảo thông báo lỗi không tràn ra ngoài */
+}
+button[type=submit]{
+    padding: 5px 30px;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+.button {
+    display: inline-flex;
+    border:1px solid black;
+    padding: 5px 20px;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-family: 'Lexend';
+}

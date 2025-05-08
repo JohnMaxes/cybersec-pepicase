@@ -1,0 +1,48 @@
+:root{
+--text-color: #1F3E97;
+    --font-input: 'Lexend';
+}
+.form-label{
+    margin: 0;
+    color: var(--text-color);
+    font-family: var(--font-input);
+    padding-right: 500px;
+}
+
+.form-required{
+    font-family: var(--font-input);
+    color: red;
+}
+
+.input-group-text {
+    position: absolute;
+    right: 10px; /* Đặt vị trí của con mắt sang phải */
+    cursor: pointer;
+    top:55%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Để phần màu nền của con mắt trong suốt */
+    border: 10px; /* Xóa viền của con mắt */
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.form-group {
+    margin-bottom: 7px;
+}
+.form-group label{
+    margin-bottom:10px;
+}
+/* Facebook + Google */
+.button {
+    display: inline-flex;
+    border:1px solid black;
+    padding: 5px 20px;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-family: var(--font-input);
+}
+/* check account */
+#check_account{
+    font-family: var(--font-input);
+    margin-top: 30px;
+}

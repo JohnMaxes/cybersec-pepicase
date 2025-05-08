@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepicase</title>
+    <%- include('partials/link_imports.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/pepi-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="wrapper">
+        <div class="form-container">
+        <h2 class="text-center" style="margin: 0px; margin-bottom: 20px; color: #1F3E97; font-family: 'Londrina Solid';"><b>LOGIN</b></h2>
+            <form method="post" action="/login<%= action ? `?action=${action}` : '' %>">
+                <div class="form-group">
+                    <label style="color: #1F3E97;" for="username"><b>Username</b></label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="john_doe">
+                    <div id="emailError" style="color: red; display: none;">Please enter a valid email address.</div>                   
+                </div>
+                <div class="form-group">
+                    <label for="password" style="color:#1F3E97;"><b>Password</b></label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="password123">
+                    <span class="input-group-text" id="toggle_password"><img style="margin: 0px;" src="/images/Ellipse.svg" alt=""></span>
+                </div>
+                <div class="text-center">
+                    <div id="button" class="btn btn-primary form-control" onclick="process()"
+                    style = "width: 100%; margin-top: 10px; background-color: #FFE57A; border-color: black; transition: background-color 0.3s; color:black; font-weight:bold; font-family: 'Lexend'">
+                        LOGIN
+                    </div>
+                </div>
+                <div class="text-center" style = "color:red"><strong><%= error %></strong></div>
+                <div class="d-flex align-items-center mt-3">
+                    <hr class="flex-grow-1"><span style="padding: 5px;">OR</span><hr class="flex-grow-1">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button id="facebook-button" type="button" class="button">
+                        <img style="width: 24px; height: 24px; margin-right: 5px" src="/images/Facebook_icon.svg" alt="facebook">Facebook
+                    </button>
+                    <button id="google-button" class="button" style="text-decoration: none;">
+                        <img style="width: 26px; height: 26px; margin-right: 5px" src="/images/Google_Icons-09-512.webp" alt="google">Google
+                    </button>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <a style="color: #1F3E97; font-size:14px" href="/login">Forgot your password?</a>
+                    <a style="color: #1F3E97; font-size:14px" href="/signup">Create an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/javascripts/login.js"></script>
+</body>
+</html>

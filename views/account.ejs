@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepicase</title>
+    <%- include('partials/link_imports.ejs') %>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <div style="background-color: #FFFAE3; height: 200px; display: flex; align-items: center; justify-content: center;">
+        <b style="font-size: 40px; font-family: 'Lexend Tera';">My Account</b>
+    </div>
+
+    <div class="flex-container" style="display: flex; margin-top: 50px;">
+    <section style="margin-left: 10%; margin-right: 5%">
+        <div style="margin-bottom: 40px;">
+            <b style="font-size: 50px; font-family: 'Lexend';">Account</b>
+            <div class="flex-container" style="margin-top: 10px;">
+                <a style ="text-decoration:none;" href=""><img src="/images/user.svg" alt=""></a>
+                <a href="/logout" style="color: #838383; margin-left: 6px; font-size: 20px; font-family: 'Lexend';">Log out</a>
+                <div id="delete" onclick="delete_account()" style="text-decoration: underline;color: #838383; margin-left: 6px; margin-top: 10px; font-size: 20px; font-family: 'Lexend';">Delete account</div>
+                <div id="delete_alert" style="color: red; margin-left: 6px; font-size: 20px; font-family: 'Lexend';"></div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <b style="font-size: 50px; font-family: 'Lexend';">Purchases</b>
+            <div class="flex-container" style="color: #838383; font-size: 20px; font-family: 'Lexend';margin-top: 10px;">
+                <text style="margin-top: 15px;">View previous purchases</text><a href="/purchases" style="color: #838383; font-size: 20px; margin-left: 6px; font-family: 'Lexend';">here</a>
+            </div>
+        </div>
+
+        <div>
+            <b style="font-size: 50px; font-family: 'Lexend';">Wishlist</b>
+            <div class="flex-container" style="color: #838383; font-size: 20px; font-family: 'Lexend';margin-top: 10px;">
+                <img src="/images/black_heart.svg" alt="">
+                <text style="margin-top: 15px;">View your wishlist</text><a href="/wishlist" style="color: #838383; font-size: 20px; margin-left: 6px; font-family: 'Lexend';">here</a>
+            </div>
+        </div>
+    </section>
+
+    <aside style="margin-left: 3.5%; width: fit-content">
+        <div>
+            <b style="font-size: 40px;">Account Details</b>
+            <p style="font-size:20px; margin-top:10px; color: #838383; font-family: 'Lexend';">Manage and protect your account</p>
+        </div>
+        <hr style="color: #838383; margin-bottom: 30px">
+        <form action="" style="font-family: 'Lexend';">
+            <input type="hidden" id="csrf_token" name="csrf_token" value="<%-csrfToken%>">
+            <label>Full Name</label>
+            <div style="display: flex; margin-bottom: 20px">
+                <div style="margin-right: 10px; width: 35%"><input class="form-control" type="text" id ="fname" placeholder="John"></div>
+                <div style="width: 65%"><input class="form-control" type="text" id="lname" placeholder="Doe"></div>
+            </div>
+
+            <label>Email</label>
+            <div style="display: flex; margin-bottom: 20px; flex-direction: column;">
+                <input class="form-control" type="text" id="email" name="email" placeholder="example@mail.com" id="email" class="full-width">
+                <div id="check_address"><span style="color: #838383; font-family: 'Lexend'">This will be used for e-receipts and recovery methods!</span></div>
+            </div>
+
+            <label>Address</label>
+            <div style="margin-bottom: 20px">
+                <input class="form-control" type="text" id="address" placeholder="23 Ave Street..." class="full-width">
+                <div id="check_address"><span style="color: #838383; font-family: 'Lexend'">Please enter your street address with district, P.O. box, company name, c/o!</span></div>
+            </div>
+
+            <label>Telephone</label>
+            <div style="display: flex; margin-bottom: 20px">
+                <input class="form-control" id="phone" type="text" placeholder="e.g 0932456783" class="full-width">
+            </div>
+        </form>
+
+        <button id="save" class="btn btn-dark" style="width: 50%; font-family: 'Lexend'; font-size: 20px;" onclick="check_inf()">Save Changes</button>
+        <div id="inform" class ="d-flex" style="font-size: 20px; font-family: 'Lexend'; margin-top: 20px"></div>
+        <div class="form-group"><a href="/resetPassword/pending" style="font-size: 20px; color: #838383; text-decoration-line: underline; font-family: 'Lexend';">Change your password</a></div>
+        <hr style="margin-top: 30px; color: #838383">
+    </aside>
+    </div>
+    <%- include('partials/footer') %>
+    <script>
+        const user = <%- JSON.stringify(userInfo) %>;
+        $(document).ready(() => {
+            if (user !== null) {
+                $('#fname').val(user.first_name);
+                $('#lname').val(user.last_name);
+                $('#address').val(user.address);
+                $('#email').val(user.email);
+                $('#phone').val(user.phone_number);
+            }
+        })
+    </script>
+    <script src="/javascripts/account.js"></script>
+</body>
+</html>
