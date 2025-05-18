@@ -1,0 +1,65 @@
+button.sizing
+{
+    width: 150px;
+    height:50px;
+    background-color: white;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: light;
+    font-size: 13px;
+    font-style: normal;
+    margin-bottom: 15px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Lexend:wght@100..900&display=swap');
+button.sizing
+{
+    width: 150px;
+    height:50px;
+    background-color: white;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: light;
+    font-size: 13px;
+    font-style: normal;
+    margin-bottom: 15px;
+}
+* {
+    box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+    font-size: 16px;
+  }
+  body {
+    background-color: #FFFFFF;
+    margin: 0;
+  }
+.reviews-container{
+  align-items: center;
+  padding: 170px;
+}
+.review h3{
+  font-size: 20px;
+}
+.review {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.review p{
+  font-weight: 300;
+}
+.review:last-child {
+    border-bottom: none;
+}
+.rating span {
+  font-size: 14px;
+  color: #666;
+  margin-left: 800px;
+  font-weight: 200;
+}
+.rating {
+    font-size: 20px;
+    color: #ffd700;
+}
+.fa-star {
+    margin-right: 5px;
+}

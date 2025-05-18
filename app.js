@@ -9,6 +9,9 @@ var loginRouter = require('./routes/loginRouter');
 var signupRouter = require('./routes/signupRouter');
 var accountRouter = require('./routes/accountRouter')
 var logoutRouter = require('./routes/logoutRouter');
+var productRouter = require('./routes/productRouter');
+var cartRouter = require('./routes/cartRouter');
+var checkoutRouter = require('./routes/checkoutRouter');
 var testRouter = require('./routes/test');
 
 var app = express();
@@ -27,6 +30,9 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/account', accountRouter);
+app.use('/product', productRouter);
+app.use('/cart', cartRouter);
+app.use('/checkout', checkoutRouter);
 app.use('/test', testRouter);
 app.use('/logout', logoutRouter)
 

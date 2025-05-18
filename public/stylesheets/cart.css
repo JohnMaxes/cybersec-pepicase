@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+.content1 {
+    max-width: 700px; /* Giữ nguyên kích thước ban đầu */
+    flex: 1; /* Điều chỉnh kích thước để cân bằng với sidebar */
+}
+
+.top-content1, .middle-content1, .bottom-content1 {
+    padding-bottom: 50px;
+    border-radius: 10px;
+    margin-left: 120px; /* Khoảng cách bên trái giữa sidebar và content */
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.wrapper-content1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-content p {
+    margin: 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+button[type="button"]{
+   
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+/* Các định dạng bổ sung cho phần aside */
+.yourcart{
+    width: 50%; /* Đặt chiều rộng cụ thể cho sidebar */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 20px; /* Khoảng cách bên trái giữa sidebar và content */
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    
+}
+
+.cart-item img {
+    width: 80px; /* Kích thước nhỏ hơn để phù hợp với sidebar */
+    height: auto;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remove-btn {
+    display: block;
+    margin-top: 10px;
+
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.checkout {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+

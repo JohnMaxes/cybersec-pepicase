@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepicase</title>
+    <%- include('partials/link_imports.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/product.css">
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <!-- content -->
+    <div class="d-flex" style ="height: 675px;">
+
+        <div id = "image-box" class ="shadow d-flex justify-content-center align-items-center" style = "margin-left: 145px; 
+        margin-top: 55px; width:495px; height:495px; background-color:#FFFAE3; border-radius: 10px;">
+            <img src ="<%- product.image %>.svg" style ="height: 90%; width: auto;">
+        </div>
+
+        <div style=" margin-top:55px; margin-left:100px; height:575px; width:620px;">
+            <div class="d-flex" style="height: fit-content;">
+                <div id="product_name" class="lexend" style="line-height: 44px; height: 88px; width: fit-content; max-width: 500px; font-size: 32px;">
+                    <%- product.name %>
+                </div>
+                <div class="ml-auto">
+                    <img id="favorite" onclick="toggleFavorite()" style="margin-top: 12px; width: 28.89px; height: 25.84px;" alt="favorite"
+                    src='/images/favorite_icon.svg'>
+                </div>
+            </div>
+            <div id="pricing" class="lexend-tera" style="font-size:25px;"><%- product.isdeleted ? 'Unavailable' : product.price %></div>
+            <div id="indiv_amount"></div>
+            <div style="font-size:18px; color:gray;">Model</div>
+            <div>
+                <button class = "sizing">iPhone 11</button>
+                <button class = "sizing">iPhone 11 Pro</button>
+                <button class = "sizing">iPhone 11 Pro Max</button>
+                <button class = "sizing">iPhone XR</button>
+            </div>
+            <div>
+                <button class = "sizing">iPhone 12</button>
+                <button class = "sizing">iPhone 12 Pro</button>
+                <button class = "sizing">iPhone 12 Pro Max</button>
+                <button class = "sizing">iPhone 12 Mini</button>
+            </div>
+            <div>
+                <button class = "sizing">iPhone 13</button>
+                <button class = "sizing">iPhone 13 Pro</button>
+                <button class = "sizing">iPhone 13 Pro Max</button>
+                <button class = "sizing">iPhone 13 Mini</button>
+            </div>
+            <div>
+                <button class = "sizing">iPhone 14</button>
+                <button class = "sizing">iPhone 14 Pro</button>
+                <button class = "sizing">iPhone 14 Pro Max</button>
+                <button class = "sizing">iPhone 14 Plus</button>
+            </div>
+            <div>
+                <button class = "sizing">iPhone 15</button>
+                <button class = "sizing">iPhone 15 Pro</button>
+                <button class = "sizing">iPhone 15 Pro Max</button>
+                <button class = "sizing">iPhone 15 Plus</button>
+            </div>
+
+            <div class="d-flex">
+                <% if (!userObj) { %>
+                    <a href="/login?action=product/<%- product.id %>" style ="text-decoration:none;">
+                <% } %>
+                <button id="add_to_cart_button" class= "lexend d-flex align-items-center justify-content-center btn-dark btn" style = "width: 350px; height: 50px; border-radius:20px;">BUY NOW</button>
+                <% if (!userObj) { %>
+                    </a>
+                <% } %>
+                <div id ="quantity" class ="d-flex" style = "border: 1px solid black; width:fit-content;margin-left:10px;">
+                    <button onclick="add()" id="plus" class= "lexend d-flex align-items-center justify-content-center" style = "border:none; background-color:white">+</button>
+                    <div id="curr_quantity" style ="width: 50px;"class= "lexend d-flex align-items-center justify-content-center">1</div>
+                    <button onclick="minus()" id="minus" class= "lexend d-flex align-items-center justify-content-center" style = "border:none; background-color:white">-</button>
+                </div>
+            </div>
+
+            <div style="font-size:15px; color:gray;">Free standard shipping</div>
+            <div id = "combotext" class ="lexend" style="font-size:25px; font-weight:400;"></div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+    <script>
+        var user = <%- userObj ? userObj.id : 'null' %>;
+        var price = <%- product.price %>;
+        var product_id = <%- product.id %>;
+        var isFavorited = false;
+        var product_name = '<%- product.name %>';
+        var quantity = 1;
+        var cart_amount = 0;
+        var is_deleted = <%- product.isdeleted ? "'delete'" : 'null' %>;
+        var indiv_amount = 0;
+    </script>  
+    <script src="/javascripts/product.js"></script>
+</body>
+</html>

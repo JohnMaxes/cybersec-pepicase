@@ -1,0 +1,268 @@
+body {
+    font-family:Lexend;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top:0;
+}
+.content1 {
+     max-width: 700px; 
+     flex: 1; 
+}
+.top-content1, .middle-content1, .bottom-content1 {
+    padding-bottom: 20px;
+}
+.bottom-content1{
+        height: 400px; 
+        overflow: hidden; 
+        position: relative; 
+}
+
+.content-top1 {
+    text-align: center;
+    background-color: #FFFAE3;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.check-out-title1{
+    font-size: 50px;
+    margin: 0;
+    font-family: Lexend Tera;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.steps p {
+    margin: 0 15px;
+}
+
+.steps hr {
+    border: 0.5px solid #000;
+    margin: 0 10px;
+    width: 50px;
+}
+
+.wrapper-content1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-content p {
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+td {
+    padding: 4px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.hidden{
+    display:none;
+}
+
+.full-width {
+    width: 100%;
+}
+.shipping-option {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.shipping-option input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.shipping-option label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+button[type="button"]{
+    display:block;
+    width:100%;
+    height:100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+#momo-btn{
+        background-image: url('/images/momo.svg'); 
+        background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+        background-position: 10px center; /* Đặt hình ảnh ở giữa bên trái */
+        background-size: 30px 30px;
+        cursor: pointer; 
+        margin-right:20%;
+}
+
+#credit-card-btn
+{
+    background-image: url('/images/vnpay.webp'); 
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    background-position: 10px center; /* Đặt hình ảnh ở giữa bên trái */
+    background-size: 30px 30px;
+    cursor: pointer; 
+}
+
+#momo-btn:hover {
+    color: #B0006E;  /* Màu chữ khi hover */
+    border: 1px solid #B0006E; /* Viền màu hồng khi hover */
+    background-color: white; /* Màu nền */
+}
+#credit-card-btn:hover {
+    border:1px solid black;
+    background-color: white; /* Màu nền */
+}
+#cod-btn:hover{
+     border:1px solid black;
+     background-color: white; /* Màu nền */
+}
+button.active{
+    border: 1px solid black; /* Viền in đậm khi được chọn */
+    color: #060606;
+    background-color: white;
+}
+
+.vnpay:hover
+{
+    border: 1px solid black; /* Viền in đậm khi được chọn */
+    color: #060606;
+    background-color: white;
+}
+
+/* Các định dạng bổ sung cho phần aside */
+ .sidebar1{
+    width: 50%; 
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 20px; 
+    height: fit-content;
+}
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.image-container {
+    height: 150px;
+    width: 120px;
+    background-color: #C4C4C4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+
+
+}
+
+.image-container img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.input-discount{
+    display:flex;
+    flex-direction:row;
+}
+.left-item, .right-item {
+    display: flex;
+    flex-direction: column;
+}
+#discount{
+    display:none;
+}
+
+.right-item {
+    text-align: right; /* This aligns text to the right in the .right div */
+}
+.item-details {
+    flex: 1;
+}
+
+.cart-summary {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.cart-summary input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+} 
+.cart-summary p {
+    margin: 5px 0;
+}
+
+.cart-summary p strong {
+    font-size: 1.2em;
+}
+
+.buy-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.buy-btn:hover {
+    background-color: #444;
+}

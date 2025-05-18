@@ -1,0 +1,241 @@
+.container {
+    display: flex;
+  }
+  
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    max-width: 194px;
+    margin-top: 80px;
+  }
+  
+  .filters-header {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .filters-title {
+    color: #000;
+    font: 600 25px/136% Lexend Deca, -apple-system, Roboto, Helvetica, sans-serif;
+    letter-spacing: -0.55px;
+  }
+  
+  .clear-filters {
+    color: #c4c4c4;
+    font: 400 20px/143% Public Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    letter-spacing: -0.4px;
+    text-decoration: underline;
+    align-self: start;
+    flex: 1 0 auto;
+  }
+  
+  .collection-title,
+  .material-title,
+  .color-patterns-title {
+    color: #000;
+    font: 700 20px/143% Public Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    letter-spacing: -0.4px;
+    width: 100%;
+  }
+  
+  .collection-item,
+  .material-item {
+    display: flex;
+    gap: 12px;
+    font-size: 17px;
+    color: #000;
+    font-weight: 400;
+    letter-spacing: -0.4px;
+    line-height: 131%;
+    margin-top: 10px;
+  }
+  
+  .collection-checkbox,
+  .material-checkbox {
+    border: 1px solid rgba(13, 13, 13, 1);
+    width: 23px;
+    height: 23px;
+  }
+  
+  .collection-label,
+  .material-label {
+    font-family: Lexend, sans-serif;
+    flex: 1 0 auto;
+    margin: auto 0;
+  }
+  
+  .divider {
+    border-top: 1px solid #000;
+    background-color: #000;
+    min-height: 1px;
+    margin-top: 29px;
+    width: 100%;
+  }
+  
+  .color-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 19px;
+  }
+  
+  .color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .color {
+    position: relative;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .color span.check-mark {
+    position: absolute;
+    display: none;
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+  }
+  
+  .color.selected span.check-mark {
+    display: block;
+    color: rgb(0, 0, 0);
+  }
+  
+  .color-white {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  
+  .color-clear {
+    background-color: #eeeeeb;
+  }
+  
+  .color-yellow {
+    background-color: #fbe29f;
+  }
+  
+  .color-blue {
+    background-color: #6187b7;
+  }
+  
+  .color-pink {
+    background-color: #facdd5;
+  }
+  
+  .color-multicolor {
+    background: linear-gradient(128deg, #bee4ea 35.2%, #dcd7de 58.65%, #fac9d2 82.11%);
+  }
+  
+  .color-label {
+    font-family: Lexend, sans-serif;
+    font-size: 17px;
+    color: #000;
+    font-weight: 400;
+    line-height: 131%;
+    letter-spacing: -0.4px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  
+  
+  .apply-filters {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 12px 24px;
+    font: 500 20px Lexend, sans-serif;
+    cursor: pointer;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 165px;
+  }
+  
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    width: calc((100% / 3) - 20px);
+    box-sizing: border-box;
+  }
+  
+  .image-wrapper {
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 0.7);
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 7px;
+  }
+  
+  .product-image {
+    aspect-ratio: 0.46;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    z-index: 10;
+    margin-bottom: -5px;
+    max-width: 135px;
+  }
+  
+  .product-container:only-child {
+    width: 100%; /* Ensure the only product takes full width */
+    max-width: 300px; /* Set a reasonable max-width for the container */
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .product-name a {
+    color: #000;
+    margin-top: 5px;
+    width: 100%;
+    font: 400 22px Lexend, sans-serif;
+    text-decoration: none;
+  }
+  
+  .product-price a{
+    color: #000;
+    margin-top: 9px;
+    width: 100%;
+    font: 275 22px Lexend Zetta, sans-serif;
+    text-decoration: none;
+  }
+  
+  .load-more-btn {
+    margin-left: 725px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 41px;
+    border: 1px solid rgba(0, 0, 0, 1);
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: -0.4px;
+    font: 500 20px/110% 'Lexend', sans-serif;
+    cursor: pointer;
+  }
+  

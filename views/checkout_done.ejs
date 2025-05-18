@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pepicase</title>
+    <%- include('partials/link_imports.ejs') %>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+    <div class="lexend d-flex flex-column justify-content-center align-items-center" style ="height:50vh;">
+        <% if ( err == false) { %>
+            <h1 style ="font-size: 50px">All finished!</h1>
+            <h2 style ="font-size: 30px">We will contact you later confirm the delivery information!</h2>
+        <% } else { %>
+            <h1 style ="font-size: 50px">An error has occured!</h1>
+            <h2 style ="font-size: 30px">Please try again later.</h2>
+        <% } %>
+        <div class="lexend d-flex flex-row justify-content-center align-items-center" style="margin-top: 10vh;">
+            <a href="/" style ="color:black">Go back to the home page here</a>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

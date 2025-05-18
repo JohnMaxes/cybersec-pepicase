@@ -44,7 +44,7 @@ router.post('/', express.urlencoded({ extended: true }), async function(req, res
                         await redisClient.setEx(`username:${username}:banned`, 300, 1);
                         return res.status(403).send('Too many failed attempts for this username. Try again later.');
                     }
-                })       
+                })
                 return res.status(200).json({ error: 'Incorrect email or password.'});
             }
             else {
@@ -57,13 +57,14 @@ router.post('/', express.urlencoded({ extended: true }), async function(req, res
                     await redisClient.setEx(`2fa:${username}`, 300, secret);
                     emailService.sendAuthenticationEmail(results[0].email, link)
                         .catch(err => console.error('Failed to send email:', err));
-                    return res.redirect(`/login?error=${encodeURI('New login location detected, check your email.')}`)
+                        return res.status(200).json({ error: 'New login location detected, check your email.'}); 
                 }
-                const token = jwt.sign({ id: results[0].id, username: results[0].username }, 'pepicase');
+                
+                const token = jwt.sign({ id: results[0].id, username: results[0].username, email: results[0].email }, 'pepicase');
                 res.cookie('token', token, {
                     httpOnly: true,
                     sameSite: 'Lax',
-                    maxAge: 300000,
+                    maxAge: 3600000,
                     path: '/',
                 });
                 await redisClient.del(`ip:${ip}:login_attempts`)
@@ -76,7 +77,7 @@ router.post('/', express.urlencoded({ extended: true }), async function(req, res
 });
 
 function generateAuthenticationLink(id, username, secret) {
-    return `http://localhost:3000/login/authenticate?id=${id}&username=${encodeURIComponent(username)}&secret=${secret}`;
+    return `http://localhost:4000/login/authenticate?id=${id}&username=${encodeURIComponent(username)}&secret=${secret}`;
 }
 
 function generateTrustToken(username) {
@@ -111,6 +112,7 @@ router.get('/authenticate', authMiddleware.tokenInit, async function(req, res) {
     else await redisClient.incr(`ip:${ip}:2fa_attempts`).then( async (newValue) => {
         if(newValue > MAX_ATTEMPTS) await redisClient.set(`ip:${req.ip}:2fabanned`, 1, {EX: 300});
     });
+
     // Username tracking
     let usernameExists = await redisClient.exists(`username:${req.query.username}:2fa_attempts`);
     if (!usernameExists) await redisClient.set(`username:${req.query.username}:2fa_attempts`, 1, { EX: 300 });

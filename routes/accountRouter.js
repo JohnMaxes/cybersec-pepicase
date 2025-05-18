@@ -4,7 +4,6 @@ var router = express.Router();
 var authMiddleware = require('../middleware/authMiddleware')
 const connection = require('../db/connection');
 const csrfTokenMiddleware = require('../middleware/csrfTokenMiddleware')
-const jwt = require('jsonwebtoken');
 router.use(authMiddleware.tokenInit);
 
 router.get('/', function(req, res) {
@@ -12,7 +11,9 @@ router.get('/', function(req, res) {
     else connection.query('SELECT * FROM user_info WHERE user_id = ?', req.userObj.id, (err, results) => {
         if(err) res.status(500).send(err);
         else if(results.length === 0) res.status(401).send('User not found!');
-        else res.render('account', { userObj: req.userObj, userInfo: results[0], csrfToken: csrfTokenMiddleware.generateCsrfToken(req.token)});
+        else res.render('account', { userObj: req.userObj, userInfo: results[0], 
+            csrfToken: csrfTokenMiddleware.generateCsrfToken(req.token)
+        });
     })
 });
 
@@ -32,9 +33,8 @@ const checkInf = (first_name, last_name, email, phone, address) => {
 };
 
 router.post('/', express.urlencoded({ extended: true }), function(req, res) {
-    console.log(req.body.csrfToken);
     let csrfTokenValid = csrfTokenMiddleware.validateCsrfToken(req.token, req.body.csrfToken);
-    if(!req.userObj || !csrfTokenValid) res.status(403).send('Unauthorized');
+    if(!req.userObj || !csrfTokenValid ) res.status(403).send('Unauthorized');
     const { first_name, last_name, email, phone, address } = req.body, user_id = req.userObj.id;
     if (checkInf(first_name, last_name, email, phone, address) && user_id) {
         let result_length, query;
@@ -54,7 +54,7 @@ router.post('/', express.urlencoded({ extended: true }), function(req, res) {
                 }
                 console.log('Info updated');
                 return res.status(200).json({ message: "Account updated!" });
-            });    
+            });
         })
     }
     else return res.status(400).send('Bad request!');
